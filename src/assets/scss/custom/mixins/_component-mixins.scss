@@ -1,0 +1,124 @@
+// _component-mixins.scss
+
+// Definición de tipos de botones
+$button-types: (
+  solid: (
+    bg-color: var(--primary-color),
+    text-color: var(--text-color),
+    border-color: var(--primary-color),
+    hover-bg-color: var(--primary-variant),
+    hover-text-color: var(--text-color),
+    hover-border-color: var(--primary-variant),
+    hover-shadow: 0 4px 6px var(--primary-color)
+  ),
+  outline: (
+    bg-color: transparent,
+    text-color: var(--primary-color-second),
+    border-color: var(--primary-color-second),
+    hover-bg-color: transparent,
+    hover-text-color: var(--primary-color-second),
+    hover-border-color: var(--primary-color-second),
+    hover-shadow: 0 4px 4px var(--grey-four)
+  ),
+  slim: (
+    bg-color: transparent,
+    text-color: var(--primary-color-second),
+    border-color: none,
+    hover-bg-color: transparent,
+    hover-text-color: var(--primary-color-second),
+    hover-border-color: none,
+    hover-shadow: none
+  )
+);
+
+// Mixin de botón principal
+@mixin button(
+  $type: solid, 
+  $width: auto, 
+  $max-width: 300px,
+  $padding: 8px 16px,
+  $border-radius: 0px
+) {
+  // Obtener configuración del tipo de botón
+  $button-config: map-get($button-types, $type);
+  
+  @if $button-config == null {
+    @error "Tipo de botón '#{$type}' no está definido.";
+  }
+
+  // Configuraciones base del botón
+  @include flex(center, 10px);
+  @include text(1.4rem, 600, 1.8rem, center);
+
+  // Estilos específicos del botón
+  width: $width;
+  max-width: $max-width;
+  padding: $padding;
+  border-radius: $border-radius;
+  
+  // Estilos de color y estado
+  background-color: map-get($button-config, bg-color);
+  color: map-get($button-config, text-color);
+  border: 1px solid map-get($button-config, border-color);
+
+  // Propiedades de transición
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-wrap: nowrap;
+  transition: all 0.1s linear;
+  will-change: auto;
+
+  // Estados del botón
+  &:not(:disabled) {
+    &:hover {
+      cursor: pointer;
+      background-color: map-get($button-config, hover-bg-color);
+      color: map-get($button-config, hover-text-color);
+      border-color: map-get($button-config, hover-border-color);
+      box-shadow: map-get($button-config, hover-shadow);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+  }
+
+  // Estado deshabilitado
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #D5D7DA;
+    border-color: #D5D7DA;
+    color: #828282;
+  }
+
+  // Estilos para elementos internos
+  a, .icon {
+    color: inherit;
+  }
+}
+
+// Ejemplos de uso
+.button-solid {
+  @include button(solid);
+  border-radius: 8px;
+}
+
+.button-outline {
+  @include button(outline);
+}
+
+.button-slim {
+  @include button(slim);
+}
+
+// Ejemplo de personalización
+.button-custom {
+  @include button(
+    $type: solid, 
+    $width: 100%, 
+    $max-width: 250px, 
+    $padding: 12px 24px,
+    $border-radius: 8px
+  );
+}

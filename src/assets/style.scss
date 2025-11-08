@@ -1,0 +1,266 @@
+@import "tailwindcss";
+@import "./scss/custom/Mixins";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+:root {
+  --primary-color: #CEFF1C;
+  --primary-variant: #f4ffcd;
+
+  --primary-color-second: #242636;
+  --secondary-color: #C5FD83; 
+  --secondary-color-second: #FFF; 
+  
+  --grey-one: #F5F5F5;
+  --grey-two: #D5D7DA;
+  --grey-three: #F7F7F9;
+  --grey-four: #828282; 
+
+  --bg-color: #F8FAFC;
+  --bg-second: #F1F5F9;
+
+  --text-color: #232325;
+  --text-light: #FFFFFF;
+  --text-custom: #2D679F;
+
+  --error-color: #F32D2D;
+  --error-light: #FFDBDB;
+
+  --success-color: #54E34E;
+  --success-light: #DCFBEA;
+
+  --warning-color: #FEC84B;
+  --warning-light: #FEC84B69;
+
+  --graph-one: #9F82F7;
+  --graph-two: #7A5AF8;
+  --graph-three: #36BFFA;
+  --graph-four: #2E65F3;
+  --graph-five: #EE46BC;
+
+  --primary-font: "Roboto Mono", monospace;
+  --secondary-font: "Rubik", sans-serif;
+  //inputs
+  --border-input: #E0E2E7;
+  --boder-active:#828282;
+
+  //buttons
+  // gradient
+  --my-gradient: linear-gradient(90deg,#ff0000 0%, #00ff00 80%);
+}
+
+@theme {
+
+  --color-nav-shadow: var( --primary-color);
+
+  --breakpoint-xs-2: "320px", // teléfono muy pequeño
+  --breakpoint-xs: "375px", // teléfono estándar
+  --breakpoint-sm: "535px", // phablet / teléfono grande
+  --breakpoint-md: "768px", // tablet vertical
+  --breakpoint-lg-2: "991px", // tablet horizontal / laptop chica
+  --breakpoint-lg: "1024px", // laptop mediana
+  --breakpoint-xl: "1200px", // laptop grande
+  --breakpoint-2xl: "1536px", // desktop grande
+
+ 
+}
+
+
+html {
+  font-size: 62.5%;
+  font-family: var(--secondary-font)!important;
+
+  @media screen and (max-width: 900px) {
+    font-size: 55%;
+  }
+}
+@layer base {
+
+// body{
+//   @include flex(center, false, stretch);
+//   flex-wrap: wrap;  
+//   font-family: var(--primary-font)!important;
+//   font-size: 1.6rem;
+//   width: 100%;
+//   min-height: 100vh;
+// }
+
+.body{
+  @include flex(center, false, stretch);
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;  
+}
+
+.article{
+  @include article-box;
+}
+.section{
+  @include section-box;
+}
+
+.box{
+  @include section-box;
+}
+
+// body{
+//   cursor: url("/cursor.png"), default;
+// }
+
+h1{
+  @include text(6.4rem, 700, auto);
+  font-family: var(--primary-font);
+}
+h2{
+  @include text(4.8rem, 700, auto);
+  font-family: var(--primary-font);
+}
+h3{
+  @include text(3.6rem, 700, auto);
+  font-family: var(--primary-font);
+}
+h4{
+  @include text(2.4rem, 700, auto);
+  font-family: var(--primary-font);
+}
+h5{
+  @include text(2rem, 500, auto);
+  font-family: var(--primary-font);
+}
+h6{
+  @include text(1.8rem, 400, auto);
+  font-family: var(--primary-font);
+}
+
+p{
+  white-space: break-spaces;
+  @include text(1.4rem, 400, 2.4rem); 
+  margin-bottom: 0;
+}
+input,
+select,
+textarea,
+button {
+  background-color: transparent;
+  border: 0;
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--secondary-font);
+  transition: all 0.1s linear;
+}
+button:active {
+  transform: translateY(4px);
+}
+
+a{
+  font-family: var(--secondary-font);
+  text-decoration: none;
+  color: var(--text-color);
+  &:hover{
+    text-decoration: none;
+    color: var(--text-color);
+  }
+}
+
+.scroll{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: #ff5b2011 #f3f3f300;
+  scrollbar-width: thin;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: #ff5b2043;
+  border-radius: 4px;
+}
+
+.scroll::-webkit-scrollbar{
+  width: 0px;
+  height: 3px;
+}
+
+.scroll::-webkit-scrollbar-thumb:active {
+  background-color: #ff5b2021;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #ff5b2021;
+}
+
+ /* Estilos track de scroll */
+.scroll::-webkit-scrollbar-track {
+  background: #f3f3f300;
+  border-radius: 4px;
+}
+
+.scroll::-webkit-scrollbar-track:hover, 
+.scroll::-webkit-scrollbar-track:active {
+  background: #00000000;
+}
+
+.icon{
+  width: 16px;
+    height: 16px;
+    transition: 0.5s;
+    // margin: 0 8px;
+    // color: var(--text-invert);
+}
+
+img{
+  width: 100%;
+}
+
+.btn-primary{
+  @include button(solid);
+  border-radius: 8px;
+}
+.btn-secondary{
+  @include button(outline);
+  border-radius: 8px; 
+}
+
+.btn-third{
+  @include button(slim);
+  border-radius: 8px;
+  &:not(:disabled){
+    &:hover{
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  &:disabled{
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.btn-cancel{
+  @include button(solid);
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+  color: var(--text-light);
+  border-radius: 8px;
+  &:not(:disabled){
+    &:hover{
+      background-color: var(--error-light);
+      color: var(--text-color);
+      border-color: var(--error-light);
+      box-shadow: 0 4px 6px var(--error-color);
+    }
+  } 
+}
+
+.bordered{
+  @include border;
+}
+
+
+}
+
+ 
