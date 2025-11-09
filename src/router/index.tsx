@@ -8,6 +8,7 @@ import { NotFound } from '@/views/NotFound';
 import { JwtService } from '@/core/services/JwtService';
 import DashboardView from '@/views/DashboardView';
 import AdminUsersView from '@/modules/users/views/AdminUsersView';
+import AdminProjectsView from '@/modules/projects/views/AdminProjectsView';
 
 
 // Loader para rutas protegidas
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/admin/projects',
-        element: <DashboardView title="Proyectos" />,
+        element: <AdminProjectsView />,
       }
     
     ]

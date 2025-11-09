@@ -10,16 +10,15 @@ export const useAuthStore = create(devtools((set) => ({
   setUser: (userData:any) => {
     const sesion = {
       isAuth: true,
-      user: userData.name,
+      user: `${userData.name?.first} ${userData.name?.last}`,
       email: userData.email,
-      institutionId: userData.institutionId,
-      role: [...userData.role],
-      id: userData.id
+      wallet: userData.wallet
     }
     set({ sesion })
     JwtService.saveToken(userData.token)
     JwtService.savePermissions(userData.permissions)
     JwtService.saveUser(sesion)
+    JwtService.saveUserId(userData.id)
   },
   
   logout: () => {

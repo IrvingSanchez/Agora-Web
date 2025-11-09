@@ -12,11 +12,23 @@ const MockAuth = {
   success: true,
   data: {
     user: {
-      id: 1,
-      name: "Admin User",
-      email: "admin@example.com",
-      role: "admin",
-      institution_id: 1
+      id: "usr_2ee17d14-827e-4251-849c-779be718f7ce",
+      name: {
+        first: "Fredy",
+        last: "Nazario"
+      },
+      email: "fredynn@hotmail.com",
+      phone: "5511467342",
+      wallet: {
+        interledgerAddress: null,
+        publicKey: null,
+        currency: "mxn",
+        provider: "interledger",
+        balance: 0
+      },
+      status: "active",
+      createdAt: "2025-11-09T05:05:05.906Z",
+      updatedAt: "2025-11-09T05:05:05.906Z"
     },
     access_token: "mock_access_token_1234567890",
   },
@@ -28,7 +40,7 @@ export const getMockAuth = async (): Promise<any> => {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   // Filtramos las llaves según los filtros (simulado)
- const data = MockAuth.data;
+  const data = MockAuth.data;
 
   try {
 

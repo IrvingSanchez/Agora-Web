@@ -21,6 +21,8 @@ export const JwtService = {
     return user ? JSON.parse(user) : {};
   },
 
+  saveUserId: (id: string): void => localStorage.setItem('user_id', id),
+  getUserId: (): string | null => localStorage.getItem('user_id'),
   
   hasPermissionTo: (module: string, action: string): boolean => {
     const permissions = JwtService.getPermissions();

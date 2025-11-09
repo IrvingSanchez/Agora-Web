@@ -37,7 +37,7 @@ export const useAuth = () => {
       setUser({
         name: data.data.user.name,
         email: data.data.user.email,
-        role:data.data.user.role,
+        wallet: data.data.user.wallet,
         id: data.data.user.id,
         token: data.data.access_token,
         permissions: permissions
