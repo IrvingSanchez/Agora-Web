@@ -1,0 +1,164 @@
+{
+  "users": {
+    "usr_a016c454-bbab-468e-82cc-aec1a83871d1": {
+      "id": "usr_a016c454-bbab-468e-82cc-aec1a83871d1",
+      "name": { "first": "Miguel", "last": "Zavala Ventura" },
+      "email": "miguel.zavala@example.com",
+      "phone": "+52 555 123 4567",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:13:57.478Z",
+      "updatedAt": "2025-11-09T02:13:57.479Z"
+    },
+    "usr_b1f6d812-93a2-4d2a-8f9a-0b71a0c6f1d2": {
+      "id": "usr_b1f6d812-93a2-4d2a-8f9a-0b71a0c6f1d2",
+      "name": { "first": "Laura", "last": "Hernández Ruiz" },
+      "email": "laura.hernandez@example.com",
+      "phone": "+52 555 234 5678",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:14:10.123Z",
+      "updatedAt": "2025-11-09T02:14:10.124Z"
+    },
+    "usr_c83ab10f-8f56-4f4f-9e4e-93e4af2ef211": {
+      "id": "usr_c83ab10f-8f56-4f4f-9e4e-93e4af2ef211",
+      "name": { "first": "Carlos", "last": "Jiménez Torres" },
+      "email": "carlos.jimenez@example.com",
+      "phone": "+52 555 345 6789",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:14:20.653Z",
+      "updatedAt": "2025-11-09T02:14:20.654Z"
+    },
+    "usr_d7b0a453-213a-4c2b-9c9d-1e2b7c6c341a": {
+      "id": "usr_d7b0a453-213a-4c2b-9c9d-1e2b7c6c341a",
+      "name": { "first": "Ana", "last": "Pérez López" },
+      "email": "ana.perez@example.com",
+      "phone": "+52 555 456 7890",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:14:30.982Z",
+      "updatedAt": "2025-11-09T02:14:30.983Z"
+    },
+    "usr_e213c98a-1189-4bde-85d0-ec876f9a123c": {
+      "id": "usr_e213c98a-1189-4bde-85d0-ec876f9a123c",
+      "name": { "first": "Javier", "last": "Moreno Díaz" },
+      "email": "javier.moreno@example.com",
+      "phone": "+52 555 567 8901",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:14:41.354Z",
+      "updatedAt": "2025-11-09T02:14:41.355Z"
+    },
+    "usr_f456ab98-7345-49de-b23a-81a0d4d83a11": {
+      "id": "usr_f456ab98-7345-49de-b23a-81a0d4d83a11",
+      "name": { "first": "Sofía", "last": "Martínez Castillo" },
+      "email": "sofia.martinez@example.com",
+      "phone": "+52 555 678 9012",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:14:52.011Z",
+      "updatedAt": "2025-11-09T02:14:52.012Z"
+    },
+    "usr_g987cc45-29b7-41a4-a4b2-94f3d9e6e3f2": {
+      "id": "usr_g987cc45-29b7-41a4-a4b2-94f3d9e6e3f2",
+      "name": { "first": "Diego", "last": "Ramírez Ponce" },
+      "email": "diego.ramirez@example.com",
+      "phone": "+52 555 789 0123",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:15:02.874Z",
+      "updatedAt": "2025-11-09T02:15:02.875Z"
+    },
+    "usr_h654dd11-5a77-41de-8c20-7c913b4b2f22": {
+      "id": "usr_h654dd11-5a77-41de-8c20-7c913b4b2f22",
+      "name": { "first": "Valeria", "last": "Santos Aguilar" },
+      "email": "valeria.santos@example.com",
+      "phone": "+52 555 890 1234",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:15:14.438Z",
+      "updatedAt": "2025-11-09T02:15:14.439Z"
+    },
+    "usr_i128ff34-2e67-47bc-8549-9f70e1e3f7c5": {
+      "id": "usr_i128ff34-2e67-47bc-8549-9f70e1e3f7c5",
+      "name": { "first": "Fernando", "last": "García Herrera" },
+      "email": "fernando.garcia@example.com",
+      "phone": "+52 555 901 2345",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:15:25.909Z",
+      "updatedAt": "2025-11-09T02:15:25.910Z"
+    },
+    "usr_j312ae88-1b88-4bbf-928f-2c76f25a6b1f": {
+      "id": "usr_j312ae88-1b88-4bbf-928f-2c76f25a6b1f",
+      "name": { "first": "Lucía", "last": "Flores Mendoza" },
+      "email": "lucia.flores@example.com",
+      "phone": "+52 555 012 3456",
+      "wallet": {
+        "interledgerAddress": null,
+        "publicKey": null,
+        "currency": "MXN",
+        "provider": "InterledgerTestNet",
+        "balance": 0
+      },
+      "status": "active",
+      "createdAt": "2025-11-09T02:15:37.217Z",
+      "updatedAt": "2025-11-09T02:15:37.218Z"
+    }
+  }
+}
