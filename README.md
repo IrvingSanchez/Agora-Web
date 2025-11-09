@@ -16,18 +16,18 @@ También permite ver y actualizar wallets, gestionar participantes y revisar el 
 
 ### Instalación y ejecución  
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-organizacion/web-interface.git
-cd web-interface
+# 1️⃣ Clonar el repositorio
+git clone https://github.com/IrvingSanchez/Agora-Web.git
+cd Agora-Web
 
-# Instalar dependencias
+# 2️⃣ Instalar dependencias
 npm install
 
-# Modo desarrollo (con hot-reload)
+# 3️⃣ Ejecutar en modo desarrollo
 npm run dev
 
-# Generar build para producción
+# 4️⃣ Compilar para producción
 npm run build
 
-# Previsualizar build localmente
+# 5️⃣ Vista previa del build
 npm run preview
