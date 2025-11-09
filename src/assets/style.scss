@@ -1,27 +1,20 @@
 @import "tailwindcss";
 @import "./scss/custom/Mixins";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
 
 
 :root {
-  --primary-color: #CEFF1C;
-  --primary-variant: #f4ffcd;
-
-  --primary-color-second: #242636;
-  --secondary-color: #C5FD83; 
-  --secondary-color-second: #FFF; 
+  --primary-color: #2A4D69;
+  --secondary-color: #4B7B8B; 
+  --accent-color: #E9EEF2;
   
-  --grey-one: #F5F5F5;
-  --grey-two: #D5D7DA;
-  --grey-three: #F7F7F9;
-  --grey-four: #828282; 
-
   --bg-color: #F8FAFC;
   --bg-second: #F1F5F9;
 
   --text-color: #232325;
   --text-light: #FFFFFF;
-  --text-custom: #2D679F;
+
 
   --error-color: #F32D2D;
   --error-light: #FFDBDB;
@@ -32,14 +25,10 @@
   --warning-color: #FEC84B;
   --warning-light: #FEC84B69;
 
-  --graph-one: #9F82F7;
-  --graph-two: #7A5AF8;
-  --graph-three: #36BFFA;
-  --graph-four: #2E65F3;
-  --graph-five: #EE46BC;
+ 
+  --primary-font: 'Poppins', sans-serif;
+  --secondary-font: 'Inter', sans-serif;
 
-  --primary-font: "Roboto Mono", monospace;
-  --secondary-font: "Rubik", sans-serif;
   //inputs
   --border-input: #E0E2E7;
   --boder-active:#828282;
@@ -219,16 +208,16 @@ img{
 
 .btn-primary{
   @include button(solid);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .btn-secondary{
   @include button(outline);
-  border-radius: 8px; 
+  border-radius: 4px; 
 }
 
 .btn-third{
   @include button(slim);
-  border-radius: 8px;
+  border-radius: 4px;
   &:not(:disabled){
     &:hover{
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

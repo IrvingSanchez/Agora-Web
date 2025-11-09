@@ -13,114 +13,46 @@ const menuItems: MenuItemType[] = [
   {
     id: 'home',
     title: 'Home',
-    icon: 'lucide:home',
+    icon: '',
     path: '/admin',
     type: 'item',
-    module: 'Secure Center'
+    module: 'Dashboard'
   },
   {
     id: 'users',
-    title: 'Administración de Usuarios',
-    icon: 'lucide:user-round-cog',
+    title: 'usuarios',
+    icon: '',
     path: '/admin/users',
     type: 'item',
-    module: 'Secure Center'
+    module: 'Usuarios'
   },
   {
-    id: 'reports',
-    title: 'reports',
-    icon: 'lucide:file-chart-column-increasing',
-    path: '/admin/reports',
+    id: 'projects',
+    title: 'Proyectos',
+    icon: '',
+    path: '/admin/projects',
     type: 'item',
-    module: 'Secure Center'
-  },{
-    id: 'hsm_configuration',
-    title: 'Registro HSM',
-    icon: 'lucide:layout-panel-left',
-    path: '/admin/hsm_configuration',
-    type: 'item',
-    module: 'Secure Center'
+    module: 'Proyectos'
   },
+ 
   {
-    id: 'monitor',
-    title: 'Monitor HSM',
-    icon: 'lucide:scan-search',
+    id: 'products',
+    title: 'Productos',
+    icon: '',
     type: 'dropdown',
     children: [
-      {
-        id: 'monitor_dashboard',
-        title: 'Dashboard',
-        path: '/admin/monitor_dashboard',
-        type: 'item',
-        icon: 'lucide:layout-panel-left',
-        module: 'Monitor HSM'
-      },
-      {
-        id: 'monitor_logs',
-        title: 'Logs',
-        path: '/admin/monitor_logs',
-        type: 'item',
-        icon: 'lucide:file-box',
-        module: 'Monitor HSM'
-      },
-      {
-        id: 'monitor_metrics',
-        title: 'Monitores',
-        path: '/admin/monitor_metrics',
-        type: 'item',
-        icon: 'lucide:radio',
-        module: 'Monitor HSM'
-      },
-      {
-        id: 'monitor_configurations',
-        title: 'Configuraciones',
-        path: '/admin/monitor_configurations',
-        type: 'item',
-        icon: 'lucide:server-cog',
-        module: 'Monitor HSM'
-      },
-      {
-        id: 'monitor_reports',
-        title: 'Reportes',
-        path: '/admin/monitor_reports',
-        type: 'item',
-        icon: 'lucide:chart-network',
-        module: 'Monitor HSM'
-      }
+      // {
+      //   id: 'product_list',
+      //   title: 'lista de productos',
+      //   path: '/admin/product_list',
+      //   type: 'item',
+      //   icon: '',
+      //   module: 'Productos',
+      // },
+      
     ]
   },
-  {
-    id: 'key-manager',
-    title: 'Key Manager',
-    icon: 'lucide:key-square',
-    type: 'dropdown',
-    children: [
-      {
-        id: 'manager_dashboard',
-        title: 'Dashboard',
-        path: '/admin/manager_dashboard',
-        type: 'item',
-        icon: 'lucide:layout-panel-left',
-        module: 'Key Manager'
-      },
-      {
-        id: 'manager_reports',
-        title: 'Reportes',
-        path: '/admin/manager_reports',
-        type: 'item',
-        icon: 'lucide:chart-network',
-        module: 'Key Manager'
-      },
-      {
-        id: 'manager_bitacora',
-        title: 'Bitácora',
-        path: '/admin/manager_bitacora',
-        type: 'item',
-        icon: 'lucide:book',
-        module: 'Key Manager'
-      }
-    ]
-  }
+  
 ];
 
 const LayoutAdmin = () => {
@@ -155,15 +87,11 @@ const LayoutAdmin = () => {
 
             {/* Perfil y logout */}
             <div className="flex items-center gap-4 ml-auto">
-              <div className="flex items-center gap-2">
-                <Icon icon="lucide:bell" className="text-gray-600" width="30" height="30" />
-               
-              </div>
               
              
               <Menu>
-                <MenuButton className="inline-flex items-center gap-2 rounded-lg btn-primary px-3 py-1.5 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white ">
-                  <Icon icon="mdi:account-circle" className="text-gray-600" width="32" height="32" />
+                <MenuButton className="inline-flex items-center gap-2 rounded-lg btn-secondary border-1 px-3 py-1.5 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white ">
+                 
                   <p className='text-xl font-semibold'>{sesion.user}</p>
                   <Icon icon="mdi:chevron-down" className="size-8 fill-white/30" />
                 </MenuButton>

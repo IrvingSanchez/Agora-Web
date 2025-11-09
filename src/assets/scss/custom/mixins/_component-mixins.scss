@@ -4,12 +4,13 @@
 $button-types: (
   solid: (
     bg-color: var(--primary-color),
-    text-color: var(--text-color),
+    text-color: var(--text-light),
     border-color: var(--primary-color),
     hover-bg-color: var(--primary-variant),
     hover-text-color: var(--text-color),
     hover-border-color: var(--primary-variant),
-    hover-shadow: 0 4px 6px var(--primary-color)
+    hover-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px
+    
   ),
   outline: (
     bg-color: transparent,
@@ -18,7 +19,7 @@ $button-types: (
     hover-bg-color: transparent,
     hover-text-color: var(--primary-color-second),
     hover-border-color: var(--primary-color-second),
-    hover-shadow: 0 4px 4px var(--grey-four)
+    hover-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px
   ),
   slim: (
     bg-color: transparent,

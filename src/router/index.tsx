@@ -55,6 +55,14 @@ export const router = createBrowserRouter([
         index: true,
         element: <DashboardView title="Home" />,
       },
+      {
+        path: '/admin/users',
+        element: <DashboardView title="Usuarios" />,
+      },
+      {
+        path: '/admin/projects',
+        element: <DashboardView title="Proyectos" />,
+      }
     
     ]
   },
