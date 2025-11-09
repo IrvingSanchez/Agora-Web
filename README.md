@@ -2,32 +2,50 @@
 > Front-end para la API de gestión de proyectos, fases, requerimientos y transacciones.
 
 ## Links  
-- Demo: *(opcional – agregar URL si aplica)*  
-- API Backend: [Repositorio de la API](https://github.com/tu-organizacion/api-projects-service)
+- API Backend: [API repo](https://github.com/tu-organizacion/api-projects-service)
 
-## ¿Cómo funciona?  
-Esta aplicación proporciona una interfaz gráfica construida con React + TypeScript + Vite para interactuar con la API (backend) que gestiona proyectos, fases, requerimientos, transacciones y wallets de usuarios. Los usuarios pueden crear proyectos, añadir fases, registrar requerimientos, generar transacciones y visualizar el estado.  
-También permite ver y actualizar wallets, gestionar participantes y revisar el avance del proyecto de manera visual.
+## How It Works
+This web application provides a graphical interface built with React + TypeScript + Vite to interact with the backend API that manages projects, phases, requirements, transactions, and user wallets.
+Users can:
+
+Create and manage projects
+
+Add and track phases
+
+Register and verify requirements
+
+Generate and view transactions
+
+Update user wallets and monitor balances
+
+It also enables managing participants and visually tracking project progress in real time.
 
 ## ¿Cómo ejecutar?  
 ### Requisitos  
-- Node.js (v18 o superior recomendado)  
-- npm (v9 o superior recomendado)  
+- Node.js (v18 or higher recommended)
+- npm (v9 or higher recommended)
 
-### Instalación y ejecución  
-```bash
-# 1️⃣ Clonar el repositorio
+## Miembros del equipo
+The Agora project team is composed of:
+- Irving Alejandro Sánchez Castillo
+- Fredy Nazario Navarrete
+- Miguel Ángel Zavala Ventura
+
+## Learning
+Throughout the hackathon, we discovered our team’s strong ability to design and implement real-world financial transaction solutions by leveraging our technical skills and collaborative strengths.
+
+# 1️⃣ Clone the repository
 git clone https://github.com/IrvingSanchez/Agora-Web.git
 cd Agora-Web
 
-# 2️⃣ Instalar dependencias
+# 2️⃣ Install dependencies
 npm install
 
-# 3️⃣ Ejecutar en modo desarrollo
+# 3️⃣ Run in development mode
 npm run dev
 
-# 4️⃣ Compilar para producción
+# 4️⃣ Build for production
 npm run build
 
-# 5️⃣ Vista previa del build
+# 5️⃣ Preview the production build
 npm run preview
