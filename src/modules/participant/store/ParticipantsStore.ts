@@ -2,13 +2,11 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware'
 
-export const useUsersStore: any = create(devtools((set) => {
+export const participantsStore: any = create(devtools((set) => {
   // Función auxiliar para filtros
   const getDefaultFilter = () => ({
      search: "",
-      status: "",
   });
-  
 
   // Estado inicial
   const initialState = {
@@ -18,7 +16,7 @@ export const useUsersStore: any = create(devtools((set) => {
     perPage: 6,
     to: 1,
     total: 1,
-    users: [],
+    participants: [],
     filters: getDefaultFilter(),
     filtesParams: ''
   };
@@ -33,7 +31,7 @@ export const useUsersStore: any = create(devtools((set) => {
     setPerPage: (value: any) => set({ perPage: value }),
     setTo: (value: any) => set({ to: value }),
     setTotal: (value: any) => set({ total: value }),
-    setUsers: (data: any) => set({ users: data }),
+    setParticipants: (data: any) => set({ participants: data }),
 
     // Método complejo para filtros
     setFilter: (filters: any) => {

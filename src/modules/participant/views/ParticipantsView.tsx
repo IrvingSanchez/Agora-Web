@@ -4,18 +4,18 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 
 // import { CardTask } from "@/modules/secureCenter/users/components/cardTask";
-import { ProjectsTable } from "../components/ProjectsTable";
+import { ParticipantsTable } from "../components/ParticipantsTable";
 import { Loader } from "@/components/shared/Loader";
 import ProyectsFilter from "../components/forms/ProyectsFilter";
-import { useProjects } from "@/modules/projects/hooks/useProjects";
-import { useProject } from "@/modules/projects/hooks/useProject";
-import { ProjectModal } from "../components/forms/ProjectFormModal";
+import { useParticipants } from "@/modules/participant/hooks/useParticipants";
+import { useParticipant } from "@/modules/participant/hooks/useParticipant";
+import { ParticipantModal } from "../components/forms/ParticipantFormModal";
 
 
 
 
 // 📄 Componente principal
-const AdminProjectsView = ()  => {
+const ParticipantsView = ()  => {
   // 🔁 Estados y hooks
 
   
@@ -23,25 +23,24 @@ const AdminProjectsView = ()  => {
     filters,
     setfilter,
     resetFilters,
-    projects,
+    participants,
     isLoading,
-  } = useProjects();
+  } = useParticipants();
 
   const {
-    project,
-    isLoading: isProjectLoading,
-    createProject, 
+    participant,
+    isLoading: isParticipantLoading,
+    createParticipant, 
     // setIdProject, 
-    setProject,
-    clearProject,
-    deleteProject,
-
+    setParticipant,
+    clearParticipant,
+    deleteParticipant,
     //permissions
     canCreateUsers,
     canEditUsers,
     canDeleteUsers,
     canDownloadUsers,
-  } = useProject();
+  } = useParticipant();
 
 
 
@@ -53,29 +52,29 @@ const handleCreate = () => {
   };
  
   const handleModalClose = () => {
-    clearProject();
+    clearParticipant();
     setIsModalOpen(false);
   };
 
   const handleFormSuccess = (values: any) => {
  
-    const {id, ...projectData} = values;
-    createProject({ project: projectData, id });
+    const {id, ...participantData} = values;
+    createParticipant({ participant: participantData, id });
     handleModalClose();
     // Aquí podrías actualizar la lista de usuarios si es necesario
   };
 
  
-   const editProject = (project: any) => {
-    console.log("🚀 ~ editProject ~ project:", project);
+   const editParticipant = (participant: any) => {
+    console.log("🚀 ~ editParticipant ~ participant:", participant);
     // setIdProject(project.id);
-    setProject(project);
+    setParticipant(participant);
     setIsModalOpen(true);
   };
 
-  const deletProject = (id: any) => {
-    console.log("🚀 ~ deletProject ~ id:", id);
-    deleteProject(id);
+  const deletParticipant = (id: any) => {
+    console.log("🚀 ~ deletParticipant ~ id:", id);
+    deleteParticipant(id);
   };
 
   const download = () => {
@@ -126,10 +125,10 @@ const handleCreate = () => {
                   className="mb-4"
                 />
 
-                <ProjectsTable
-                  projects={projects}
-                  onEdit={editProject}
-                  onDelete={deletProject}
+                <ParticipantsTable
+                  participants={participants}
+                  onEdit={editParticipant}
+                  onDelete={deletParticipant}
                   canEdit={canEditUsers}
                   canDelete={canDeleteUsers}
                 />
@@ -137,11 +136,11 @@ const handleCreate = () => {
                 {/* <pre>{JSON.stringify(projects, null, 2)}</pre> */}
               </div>
 
-              <ProjectModal
+              <ParticipantModal
                 isOpen={isModalOpen}
                 onClose={handleModalClose}
-                initialData={project}
-                isLoading={isProjectLoading}
+                initialData={participant}
+                isLoading={isParticipantLoading}
                 onSubmitSuccess={handleFormSuccess}
               />
             </div>
@@ -152,4 +151,4 @@ const handleCreate = () => {
 };
 
 
-export default AdminProjectsView;
+export default ParticipantsView;

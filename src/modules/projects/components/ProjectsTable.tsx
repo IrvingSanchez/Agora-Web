@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Icon } from "@iconify/react";
-interface UserTableProps {
+import { Link } from "react-router-dom";
+interface TableProps {
   projects: any[];
   onEdit?: (project: any) => void;
   onDelete?: (project: any) => void;
@@ -8,7 +9,7 @@ interface UserTableProps {
   canDelete?: boolean;
 }
 
-export const ProjectsTable = ({ projects, onEdit, onDelete, canEdit, canDelete }: UserTableProps) => {
+export const ProjectsTable = ({ projects, onEdit, onDelete, canEdit, canDelete }: TableProps) => {
   return (
     <div className="overflow-x-auto rounded-lg shadow-sm">
       <table className="min-w-full divide-y divide-gray-200">
@@ -29,7 +30,11 @@ export const ProjectsTable = ({ projects, onEdit, onDelete, canEdit, canDelete }
           ) : (
             projects.map((project) => (
               <tr key={project.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-900">{project.title}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-900">
+                  <Link to={`/admin/projects/${project.id}`} className="text-blue-600 hover:underline">
+                    {project.title}
+                  </Link>
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">{project.description}</td>
                 
                 
