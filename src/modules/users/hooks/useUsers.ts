@@ -7,12 +7,15 @@ import { useUsersStore } from '@/modules/users/store/usersStore';
 import { getMockUsers } from "@/modules/users/mock/mockUsers";
 
 // Toggle entre mock y servicio real
-const USE_MOCK_DATA = true; // Cambiar a false para usar el servicio real
+const USE_MOCK_DATA = false; // Cambiar a false para usar el servicio real
 
 // Función original que llama al servicio
-const getUsersFromApi = async (pageSize: any, pageNumber: any, filters: any): Promise<any> => {
-  const { data } = await ApiService.get(
-    `/users?per_page=${pageSize}&page=${pageNumber}${filters}`
+const getUsersFromApi = async (filters: any): Promise<any> => {
+
+  console.log("🚀 ~ getUsersFromApi ~ filters:", filters)
+
+  const { data } = await ApiService.post(
+    `/users`
   );
   return data;
 };
@@ -23,28 +26,19 @@ export const useUsers = () => {
   const queryClient: any = useQueryClient();
   const {
     users,
-    currentPage,
-    from,
-    lastPage,
-    perPage,
-    to,
-    total,
+    
+   
     filters,
     filtesParams,
-    setCurrentPage,
-    setFrom,
-    setLastPage,
-    setPerPage,
-    setTo,
-    setTotal,
+    
     setUsers,
     setFilter,
     resetFilters,
   } = useUsersStore();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['users', currentPage, perPage, filtesParams],
-    queryFn: () => getUsers(perPage, currentPage, filtesParams),
+    queryKey: ['users',filtesParams],
+    queryFn: () => getUsers(filtesParams),
   });
 
   useEffect(() => {
@@ -57,18 +51,11 @@ export const useUsers = () => {
   useEffect(() => {
     if (data) {
       const { data: tasksData } = data;
-      const { pagination } = tasksData.attributes;
-      const { current_page, from, last_page, per_page, to, total } = pagination;
-
-      setCurrentPage(current_page);
-      setFrom(from);
-      setLastPage(last_page);
-      setPerPage(per_page);
-      setTo(to);
-      setTotal(total);
-      setUsers(tasksData.attributes.data);
+     
+     
+      setUsers(tasksData);
     }
-  }, [data, setCurrentPage, setFrom, setLastPage, setPerPage, setTo, setTotal, setUsers]);
+  }, [data, setUsers]);
 
   const refetchUsers = () => {
     queryClient.invalidateQueries(['users']);
@@ -79,18 +66,11 @@ export const useUsers = () => {
     isLoading,
     isError,
     error,
-    currentPage,
-    from,
-    lastPage,
-    perPage,
-    to,
-    total,
     filters,
     resetFilters,
     
     setfilter: setFilter,
-    getPage: setCurrentPage,
-    setPerPage: setPerPage,
+    
 
     refetchUsers,
   };

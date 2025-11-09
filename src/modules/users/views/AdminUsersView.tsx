@@ -5,8 +5,6 @@ import { Icon } from "@iconify/react";
 
 // import { CardTask } from "@/modules/secureCenter/users/components/cardTask";
 import { UserTable } from "../components/UserTable";
-import { Paginator } from "@/components/shared/table/Paginador";
-// import { PerPageSelector } from "@/modules/secureCenter/users/components/PerPageSelector";
 import { Loader } from "@/components/shared/Loader";
 import UsersFilters from "../components/forms/UsersFilter";
 import { useUsers } from "@/modules/users/hooks/useUsers";
@@ -20,14 +18,8 @@ const AdminUsersView = ()  => {
 
   
   const {
-    currentPage,
-    from,
-    lastPage,
-    perPage,
-    to,
-    total,
-    getPage,
-    // setPerPage,
+   
+    
     filters,
     setfilter,
     resetFilters,
@@ -140,25 +132,7 @@ const handleCreate = () => {
                   canDelete={canDeleteUsers}
                 />
 
-                {users.length > 0 && (
-                  <div className="mt-12 flex justify-end items-center gap-4">
-                    {/* <PerPageSelector
-                      perPage={perPage}
-                      getPage={getPage}
-                      setPerPage={setPerPage}
-                      total={total}
-                    /> */}
-                    <Paginator
-                      currentPage={currentPage}
-                      from={from}
-                      lastPage={lastPage}
-                      perPage={perPage}
-                      to={to}
-                      total={total}
-                      getPage={getPage}
-                    />
-                  </div>
-                )}
+                
               </div>
 
               <UserFormModal

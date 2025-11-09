@@ -33,10 +33,10 @@ export const UserTable = ({ users, onEdit, onDelete, canEdit, canDelete }: UserT
           ) : (
             users.map((user) => (
               <tr key={user.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-900">{`${user.name.first} ${user.name.last}`}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-900">{`${user.name?.first} ${user.name?.last}`}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">{user.email}</td>
                 
-                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">{user.phone}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-md text-gray-500">{user?.phone}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                     ${user.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>

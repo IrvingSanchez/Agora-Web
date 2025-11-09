@@ -246,7 +246,7 @@ const mockUsers: User[] = [
         }
     ]
 // Función mock para desarrollo
-export const getMockUsers = async (pageSize: number, pageNumber: number, filters: string): Promise<any> => {
+export const getMockUsers = async (filters: string): Promise<any> => {
   // Simulamos un delay para que se vea el loading
   await new Promise(resolve => setTimeout(resolve, 100));
 
@@ -275,9 +275,7 @@ export const getMockUsers = async (pageSize: number, pageNumber: number, filters
 
     // Calculamos la paginación
     const totalUsers = filteredUsers.length;
-    const start = (pageNumber - 1) * pageSize;
-    const end = start + pageSize;
-    const paginatedUsers = filteredUsers.slice(start, end);
+    
 
     // Retornamos el formato esperado
     return {
@@ -285,13 +283,8 @@ export const getMockUsers = async (pageSize: number, pageNumber: number, filters
       message: "users list successful",
       data: {
         attributes: {
-          data: paginatedUsers,
+          data: filteredUsers,
           pagination: {
-            current_page: pageNumber,
-            from: start + 1,
-            last_page: Math.ceil(totalUsers / pageSize),
-            per_page: pageSize,
-            to: Math.min(end, totalUsers),
             total: totalUsers
           }
         }

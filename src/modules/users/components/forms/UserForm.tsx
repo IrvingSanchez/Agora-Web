@@ -74,7 +74,7 @@ const UserForm: React.FC<FormUserProps> = ({
               label="Balance"
               name="wallet.balance"
               type="text"
-              active={`${!!values.wallet?.balance}`}
+              active={`${values.wallet?.balance === 0 ? true : !!values.wallet?.balance}`}
             />
             <Input
               label="Billera Interledger"
