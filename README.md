@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# Web Interface — Project Management Platform  
+> Front-end para la API de gestión de proyectos, fases, requerimientos y transacciones.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Links  
+- API Backend: [API repo](https://github.com/tu-organizacion/api-projects-service)
 
-Currently, two official plugins are available:
+## How It Works
+This web application provides a graphical interface built with React + TypeScript + Vite to interact with the backend API that manages projects, phases, requirements, transactions, and user wallets.
+Users can:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create and manage projects
 
-## Expanding the ESLint configuration
+Add and track phases
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Register and verify requirements
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Generate and view transactions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Update user wallets and monitor balances
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+It also enables managing participants and visually tracking project progress in real time.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ¿Cómo ejecutar?  
+### Requisitos  
+- Node.js (v18 or higher recommended)
+- npm (v9 or higher recommended)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Miembros del equipo
+The Agora project team is composed of:
+- Irving Alejandro Sánchez Castillo
+- Fredy Nazario Navarrete
+- Miguel Ángel Zavala Ventura
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Learning
+Throughout the hackathon, we discovered our team’s strong ability to design and implement real-world financial transaction solutions by leveraging our technical skills and collaborative strengths.
+
+# 1️⃣ Clone the repository
+git clone https://github.com/IrvingSanchez/Agora-Web.git
+cd Agora-Web
+
+# 2️⃣ Install dependencies
+npm install
+
+# 3️⃣ Run in development mode
+npm run dev
+
+# 4️⃣ Build for production
+npm run build
+
+# 5️⃣ Preview the production build
+npm run preview
