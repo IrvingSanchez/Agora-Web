@@ -1,52 +1,33 @@
-# 🏗️ Web Interface — Project Management Platform
+# Web Interface — Project Management Platform  
+> Front-end para la API de gestión de proyectos, fases, requerimientos y transacciones.
 
-Este proyecto es la **interfaz web** del ecosistema de control de proyectos, fases y requerimientos, conectada directamente con la API desarrollada en Node.js y Firestore.  
-Permite la gestión visual de proyectos, fases, requerimientos y transacciones asociadas.
+## Links  
+- Demo: *(opcional – agregar URL si aplica)*  
+- API Backend: [Repositorio de la API](https://github.com/tu-organizacion/api-projects-service)
 
----
+## ¿Cómo funciona?  
+Esta aplicación proporciona una interfaz gráfica construida con React + TypeScript + Vite para interactuar con la API (backend) que gestiona proyectos, fases, requerimientos, transacciones y wallets de usuarios. Los usuarios pueden crear proyectos, añadir fases, registrar requerimientos, generar transacciones y visualizar el estado.  
+También permite ver y actualizar wallets, gestionar participantes y revisar el avance del proyecto de manera visual.
 
-## 🚀 Características principales
+## ¿Cómo ejecutar?  
+### Requisitos  
+- Node.js (v18 o superior recomendado)  
+- npm (v9 o superior recomendado)  
 
-- Panel de control interactivo para proyectos, fases y requerimientos.  
-- Integración en tiempo real con Firestore y la API REST del backend.  
-- Manejo de autenticación y wallets de usuarios.  
-- Visualización de presupuestos, transacciones y avances por fase.  
-- Desarrollado con **React + TypeScript + Vite** para rendimiento óptimo.
-
----
-
-## 🧩 Tecnologías utilizadas
-
-- ⚛️ **React 18**  
-- 🧠 **TypeScript**  
-- ⚡ **Vite** (entorno de desarrollo ultrarrápido)  
-- 🎨 **TailwindCSS / ShadCN UI** (según configuración del proyecto)  
-- 🔐 **Firebase / Firestore** (para autenticación y persistencia)  
-- 🧰 **ESLint + Prettier** (para linting y formateo de código)
-
----
-
-## 📦 Instalación
-
-Antes de ejecutar el proyecto, asegúrate de tener instalado:
-
-- **Node.js** v18 o superior  
-- **npm** v9 o superior (o **pnpm / yarn**, si prefieres)
-
-Luego clona el repositorio y ejecuta:
-
+### Instalación y ejecución  
 ```bash
 # Clonar el repositorio
-git clone https://github.com/IrvingSanchez/Agora-Web.git
-
-# Entrar al directorio del proyecto
+git clone https://github.com/tu-organizacion/web-interface.git
 cd web-interface
 
 # Instalar dependencias
 npm install
 
-# Desplegar el proyecto para desarrollo:
+# Modo desarrollo (con hot-reload)
 npm run dev
 
-# Para desplegar el proyecto productivo
+# Generar build para producción
 npm run build
+
+# Previsualizar build localmente
+npm run preview
