@@ -84,8 +84,26 @@ async function alertDefault(title= 'Algo salió mal, por favor intente de nuevo.
   })
 }
 
+async function alertDefaultWithImage(title= 'Algo salió mal, por favor intente de nuevo.', message: any, image:any = '/src/assets/images/successgif.gif', timer = 5000) {
+  return Swal.fire({
+    imageUrl: image, // Aquí pones la URL de la imagen
+    // imageHeight: 60, // Puedes ajustar el tamaño de la imagen
+    imageWidth: 80,
+    title: title,
+    text: message,
+    timer,
+    confirmButtonText: 'Entiendo',
+    heightAuto: false,
+    customClass: {
+      confirmButton: "btn-primary",
+    },
+  })
+}
+
 export {
   showAlert,
   showConfirm,
-  alertDefault
+  alertDefault,
+  alertDefaultWithImage
+
 }

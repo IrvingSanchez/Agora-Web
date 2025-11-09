@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // 📁 Imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
-
-// import { CardTask } from "@/modules/secureCenter/users/components/cardTask";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { alertDefaultWithImage } from "@/hooks/useAlerts";
 import { ProjectsTable } from "../components/ProjectsTable";
 import { Loader } from "@/components/shared/Loader";
 import ProyectsFilter from "../components/forms/ProyectsFilter";
 import { useProjects } from "@/modules/projects/hooks/useProjects";
 import { useProject } from "@/modules/projects/hooks/useProject";
 import { ProjectModal } from "../components/forms/ProjectFormModal";
+import { ApiService } from "@/core/services/ApiService";
+
 
 
 
@@ -17,8 +19,24 @@ import { ProjectModal } from "../components/forms/ProjectFormModal";
 // 📄 Componente principal
 const AdminProjectsView = ()  => {
   // 🔁 Estados y hooks
-
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [ typeForm, setTypeForm ] = useState("project");
+    const [isLoadingPay, setIsLoadingPay] = useState(false);
   
+  // Manejar el parámetro redirect
+  useEffect(() => {
+    const redirect = searchParams.get('redirect');
+    if (redirect === 'true') {
+      setTypeForm("pay");
+      // Abrir el modal automáticamente
+      setIsModalOpen(true);
+      // Limpiar el parámetro de la URL
+      navigate('.', { replace: true });
+      
+    }
+  }, [searchParams, navigate]);
+
   const {
     filters,
     setfilter,
@@ -48,7 +66,8 @@ const AdminProjectsView = ()  => {
   // 🧠 Efectos
 const [isModalOpen, setIsModalOpen] = useState(false);
  
-const handleCreate = () => {
+const handleCreate = (type = "project") => {
+    setTypeForm(type);
     setIsModalOpen(true);
   };
  
@@ -83,6 +102,20 @@ const handleCreate = () => {
     console.log("Descargando reporte...");
   }
 
+  const confirmSend = async(values: any) => {
+    try {
+    setIsLoadingPay(true);
+    const  { data } = await ApiService.post('/commit/grant/finalize', values)
+    console.log("🚀 ~ handleFormSuccess ~ response:", data);
+     alertDefaultWithImage('¡Éxito!', 'Gracias por tu donación', '/src/assets/images/successgif.gif', 5000)
+    handleModalClose();
+    setIsLoadingPay(false);
+   } catch (error) {
+    console.error("Error al procesar la donación:", error);
+    setIsLoadingPay(false);
+   }
+   
+  }
 
 
   // 🖼️ Render
@@ -103,7 +136,7 @@ const handleCreate = () => {
             <div className="bg-white rounded-lg shadow p-16 pt-24 max-w-[1000px] mx-auto">
               {canCreateUsers && (
                 <button
-                onClick={handleCreate}
+                onClick={() => handleCreate("project")}
                 className=" ml-auto btn-primary"
               >
                 Añadir Proyecto
@@ -140,10 +173,12 @@ const handleCreate = () => {
               <ProjectModal
                 isOpen={isModalOpen}
                 onClose={handleModalClose}
-                initialData={project}
+                initialData={typeForm === "project" ? project : { receiverWalletAddress: ""}}
                 isLoading={isProjectLoading}
-                onSubmitSuccess={handleFormSuccess}
+                onSubmitSuccess={typeForm === "project" ? handleFormSuccess : confirmSend}
+                typeForm={typeForm}
               />
+              {isLoadingPay && <Loader background={true} />}
             </div>
           </>
       )}
