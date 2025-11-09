@@ -11,8 +11,8 @@ const getParticipant = async (id: any) => {
   return data;
 };
 
-const createParticipant = async ({ participant, id }: any) => {
-  const url = id ? `/participants` : "/participants";
+const createParticipant = async ({ participant, id, id_project }: any) => {
+  const url = id ? `projects/${id_project}/participants` : `projects/${id_project}/participants`;
   const { data } = await ApiService.post(url, participant);
   return data;
 };

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Modal } from '@/components/modal/Modal';
-import ProjectForm  from '@/modules/projects/components/forms/ProjectForm';
+import ParticipantForm from './ParticipantForm';
 
 
 interface ProjectModalProps {
@@ -10,28 +10,31 @@ interface ProjectModalProps {
   initialData?: any;
   isLoading?: boolean;
   onSubmitSuccess: (values: any) => void;
+  listUsers: any[];
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({
+export const ParticipantsModal: React.FC<ProjectModalProps> = ({
   isOpen,
   onClose,
   initialData,
   isLoading,
   onSubmitSuccess,
+  listUsers
 }) => {
   
   return (
     <Modal 
       isOpen={isOpen} 
       onClose={onClose}
-      title={initialData?.name ? 'Editar Proyecto' : 'Crear Nuevo Proyecto'}
+      title={initialData?.name ? 'Editar Participante' : 'Crear Nuevo Participante'}
       preventBackdropClose={true}
       showCloseButton={true}
     >
-      <ProjectForm
+      <ParticipantForm
         initialData={initialData}
         isLoading={!!isLoading}
         onSubmit={onSubmitSuccess}
+        listUsers={listUsers}
       />
     </Modal>
   );

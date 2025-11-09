@@ -7,7 +7,7 @@ import {  projectsStore } from '@/modules/projects/store/projectsStore';
 import { getMockProjects } from "@/modules/projects/mock/mockProjects";
 
 // Toggle entre mock y servicio real
-const USE_MOCK_DATA = true; // Cambiar a false para usar el servicio real
+const USE_MOCK_DATA = false; // Cambiar a false para usar el servicio real
 
 // Función original que llama al servicio
 const getProjectsFromApi = async (filters: any): Promise<any> => {
@@ -15,7 +15,7 @@ const getProjectsFromApi = async (filters: any): Promise<any> => {
   console.log("🚀 ~ getUsersFromApi ~ filters:", filters)
 
   const { data } = await ApiService.post(
-    `/users`
+    `/projects/all`
   );
   return data;
 };

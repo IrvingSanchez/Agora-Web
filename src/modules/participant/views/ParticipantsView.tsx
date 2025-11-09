@@ -4,18 +4,18 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 
 // import { CardTask } from "@/modules/secureCenter/users/components/cardTask";
-import { ParticipantsTable } from "../components/ParticipantsTable";
+import { ParticipantsTable } from "../components/PartcipantsTable";
 import { Loader } from "@/components/shared/Loader";
-import ProyectsFilter from "../components/forms/ProyectsFilter";
+import ProyectsFilter from "../components/forms/PartcipantFilter";
 import { useParticipants } from "@/modules/participant/hooks/useParticipants";
 import { useParticipant } from "@/modules/participant/hooks/useParticipant";
-import { ParticipantModal } from "../components/forms/ParticipantFormModal";
+import { ParticipantsModal } from "../components/forms/ParticipantFormModal";
 
 
 
 
 // 📄 Componente principal
-const ParticipantsView = ()  => {
+const ParticipantsView = ({ listUsers, projectId }: any)  => {
   // 🔁 Estados y hooks
 
   
@@ -59,7 +59,7 @@ const handleCreate = () => {
   const handleFormSuccess = (values: any) => {
  
     const {id, ...participantData} = values;
-    createParticipant({ participant: participantData, id });
+    createParticipant({ participant: participantData, id, id_project: projectId });
     handleModalClose();
     // Aquí podrías actualizar la lista de usuarios si es necesario
   };
@@ -91,21 +91,18 @@ const handleCreate = () => {
         <Loader />
       ) : (
           <>
-            <div className="p-16 max-w-[1000px] mx-auto">
+            <div className="p-4 max-w-[1000px] mx-auto">
 
-                <h4 className=" font-bold text-gray-800">Colaboradores</h4>
-                <p className="text-gray-600 mt-4">
-                  Esta es la lista de las personas que han decidido unirse a nuestra plataforma y contribuir al éxito de nuestros proyectos.
-                </p>
-
+                <h4 className=" font-bold text-gray-800">Participantes</h4>
+                
             </div>
-            <div className="bg-white rounded-lg shadow p-16 pt-24 max-w-[1000px] mx-auto">
+            <div className="bg-white rounded-lg shadow p-16 pt-8 max-w-[1000px] mx-auto">
               {canCreateUsers && (
                 <button
                 onClick={handleCreate}
                 className=" ml-auto btn-primary"
               >
-                Añadir Colaborador
+                Añadir Participante
                 <Icon icon="mdi:plus" width="20" height="20" />
               </button>
               )}
@@ -136,7 +133,8 @@ const handleCreate = () => {
                 {/* <pre>{JSON.stringify(projects, null, 2)}</pre> */}
               </div>
 
-              <ParticipantModal
+              <ParticipantsModal
+                listUsers={listUsers}
                 isOpen={isModalOpen}
                 onClose={handleModalClose}
                 initialData={participant}

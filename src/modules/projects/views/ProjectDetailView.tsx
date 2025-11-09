@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProjects } from "@/modules/projects/hooks/useProjects";
 import { useUsers } from "@/modules/users/hooks/useUsers";
 import useTransformArray from "@/hooks/useTransformArray";
+import ParticipantsView from "@/modules/participant/views/ParticipantsView";
 
 const ProjectDetailView = () => {
   // Obtener el parámetro projectId de la URL
@@ -17,7 +18,7 @@ const ProjectDetailView = () => {
     users,
   } = useUsers();
 
-  const userList = useTransformArray(users, 'id', 'name');
+  const userList = useTransformArray(users, 'id', 'email');
 
   console.log("Usuarios disponibles:", userList);
 
@@ -33,17 +34,18 @@ const ProjectDetailView = () => {
         <p>{project.description}</p>
 
         <div className="flex mt-4">
-          <div className="bg-white rounded-lg shadow p-6 mr-4 flex gap-2 ">
+          <div className="bg-white rounded-lg shadow p-6 mr-4 flex items-center gap-4 ">
             <p className="font-semibold">Presupuesto:</p>
             <p>
               {`${project.budget.total} ${project.budget.currency}`}
             </p>
+            <button className="btn-primary">Donar</button>
           </div>
         </div>
         
       </div>
-         <div className="bg-white rounded-lg shadow p-16 pt-24 max-w-[1000px] mx-auto">
-        <pre>{JSON.stringify(project, null, 2)}</pre>
+         <div className="bg-white rounded-lg shadow p-16 pt-8 max-w-[1000px] mx-auto">
+          <ParticipantsView listUsers={userList} projectId={projectId} />
         </div>
       </>
     ) : (

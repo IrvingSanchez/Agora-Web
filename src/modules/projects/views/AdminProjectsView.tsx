@@ -94,9 +94,9 @@ const handleCreate = () => {
           <>
             <div className="p-16 max-w-[1000px] mx-auto">
 
-                <h4 className=" font-bold text-gray-800">Colaboradores</h4>
+                <h4 className=" font-bold text-gray-800">Proyectos</h4>
                 <p className="text-gray-600 mt-4">
-                  Esta es la lista de las personas que han decidido unirse a nuestra plataforma y contribuir al éxito de nuestros proyectos.
+                  Aqui encontraras la lista de proyectos a los que te puedes unir o en los que estas participando.
                 </p>
 
             </div>
@@ -106,7 +106,7 @@ const handleCreate = () => {
                 onClick={handleCreate}
                 className=" ml-auto btn-primary"
               >
-                Añadir Colaborador
+                Añadir Proyecto
                 <Icon icon="mdi:plus" width="20" height="20" />
               </button>
               )}
